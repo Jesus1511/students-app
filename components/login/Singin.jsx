@@ -57,7 +57,7 @@ const Login = () => {
     };
 
     return (
-        <View style={{ backgroundColor: Colors.background, flex: 1, justifyContent:"space-between", paddingBottom:30 }}>
+        <View style={{ backgroundColor: Colors.background, flex: 1, justifyContent:"space-between", padding:10, paddingBottom:30 }}>
 
             {error !== null && (
               <View style={styles.errorContainer}>
@@ -83,7 +83,7 @@ const Login = () => {
                 value={email}
                 onChangeText={(text) => {setEmail(text)}}
               />
-              <View style={[styles.input, {flexDirection:"row", justifyContent:"space-between"}]}>
+              <View style={[styles.input, {flexDirection:"row", paddingVertical:1, alignItems:"center", justifyContent:"space-between"}]}>
                   <TextInput
                       style={{fontFamily:"Montserrat-Medium", width:"85%", color:Colors.text}}
                       placeholder="Password"
@@ -103,7 +103,7 @@ const Login = () => {
                   </TouchableOpacity>
               </View>
 
-              <View style={[styles.input, {flexDirection:"row", justifyContent:"space-between"}]}>
+              <View style={[styles.input, {flexDirection:"row", paddingVertical:1, alignItems:"center", justifyContent:"space-between"}]}>
                   <TextInput
                       style={{fontFamily:"Montserrat-Medium", width:"85%", color:Colors.text}}
                       placeholder="Confirm Password"
@@ -168,20 +168,20 @@ const DynamicStyles = (Colors) => StyleSheet.create({
     h1: {
       textAlign:"center",
       fontFamily:"Montserrat-Bold",
-      marginTop: 40,
+      marginTop: 50,
       marginBottom: 70,
-      fontSize: 28,
+      fontSize: 25,
       color: Colors.text
     },
 
     input:{
       borderColor:"#444444",
-      borderWidth:2,
+      borderWidth:1.6,
       marginBottom:20,
       marginHorizontal:10,
       paddingVertical:10,
       paddingHorizontal:15,
-      borderRadius:24,
+      borderRadius:17,
       fontFamily:"Montserrat-Medium",
       color: Colors.text
     },
@@ -230,7 +230,7 @@ const DynamicStyles = (Colors) => StyleSheet.create({
       width: "100%",
       height: 50,
       position: "absolute",
-      top: 90,
+      top: 100,
       alignItems: "center",
       flexDirection: "row",
       justifyContent: "center",

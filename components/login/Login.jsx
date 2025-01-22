@@ -53,7 +53,7 @@ const Login = () => {
 
 
     return (
-        <View style={{ backgroundColor: Colors.background, flex: 1, justifyContent: "space-between", paddingBottom: 30 }}>
+        <View style={{ backgroundColor: Colors.background, flex: 1, justifyContent: "space-between", padding:15, paddingBottom: 30 }}>
 
             {error !== null && (
               <View style={styles.errorContainer}>
@@ -68,15 +68,14 @@ const Login = () => {
                 <TextInput
                     style={styles.input}
                     placeholder="Email"
-                    keyboardType="email-address"
                     value={email}
                     placeholderTextColor={Colors.placeholder}
                     onChangeText={(text) => {setEmail(text)}}
                 />
                 
-                <View style={[styles.input, {flexDirection:"row", justifyContent:"space-between"}]}>
+                <View style={[styles.input, {flexDirection:"row", paddingVertical:0, alignItems:"center", justifyContent:"space-between"}]}>
                     <TextInput
-                        style={{fontFamily:"Montserrat-Medium", width:"85%", color:Colors.text}}
+                        style={{fontFamily:"Montserrat-Medium", width:"85%", color:Colors.text,}}
                         placeholder="Password"
                         secureTextEntry={!isPasswordVisible}
                         keyboardType="default"
@@ -84,9 +83,9 @@ const Login = () => {
                         placeholderTextColor={Colors.placeholder}
                         onChangeText={(text) => {setPassword(text)}}
                     />
-                    <TouchableOpacity onPress={() => setPasswordVisible(!isPasswordVisible)}>
+                    <TouchableOpacity style={{width:24, height:24}} onPress={() => setPasswordVisible(!isPasswordVisible)}>
                         <Feather
-                            name={!isPasswordVisible ? 'eye' : 'eye-off'}
+                            name={isPasswordVisible ? 'eye' : 'eye-off'}
                             size={24}
                             color={Colors.text} // Cambia el color si es necesario
                             style={styles.eyeIcon}
@@ -108,14 +107,6 @@ const Login = () => {
                     <View style={styles.bar} />
                 </View>
 
-                {/* <View style={{paddingHorizontal:10}}>
-                  <TouchableOpacity style={styles.continueWithButton}>
-                      <Text>Google</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.continueWithButton}>
-                      <Text>Facebook</Text>
-                  </TouchableOpacity>
-                </View> */}
 
             </View>
 
@@ -147,16 +138,15 @@ const DynamicStyles = (Colors) => StyleSheet.create({
 
     input:{
       borderColor:"#444444",
-      borderWidth:2,
+      borderWidth:1.6,
       marginBottom:25,
       marginHorizontal:10,
       paddingVertical:10,
       paddingHorizontal:15,
-      borderRadius:24,
+      borderRadius:17,
       color:Colors.text,
       fontFamily:"Montserrat-Medium"
     },
-
 
     fpass:{
       paddingHorizontal:10,
@@ -205,7 +195,8 @@ const DynamicStyles = (Colors) => StyleSheet.create({
       width: "100%",
       height: 50,
       position: "absolute",
-      top: 105,
+      left:15,
+      top: 115,
       alignItems: "center",
       flexDirection: "row",
       justifyContent: "center",

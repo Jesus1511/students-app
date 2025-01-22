@@ -1,16 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import App from '../components/App'
+import { StyleSheet } from 'react-native';
+import App from '../components/App';
 import Toast from 'react-native-toast-message';
 
-const index = () => {
+const Index = () => {
   return (
     <>
       <App />
       <Toast />
     </>
-  )
-}
+  );
+};
 
-export default index
+export default Index;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

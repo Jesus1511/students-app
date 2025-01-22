@@ -1,6 +1,6 @@
 import { StyleSheet, useColorScheme, ActivityIndicator, View, StatusBar } from 'react-native'
 import { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import useColors from '../Utils/Colors';
 import loadFonts from '../Utils/Font'
@@ -40,6 +40,7 @@ const App = () => {
     }
  
   return (
+    <NavigationIndependentTree>
     <NavigationContainer independent={true}>
       <AuthProvider>
         <StatusBar backgroundColor={Colors.background}/>
@@ -79,6 +80,8 @@ const App = () => {
         </Stack.Navigator>
       </AuthProvider>
     </NavigationContainer>
+    </NavigationIndependentTree>
+
   )
 }
 

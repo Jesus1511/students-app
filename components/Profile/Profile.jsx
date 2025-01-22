@@ -3,13 +3,24 @@ import React from 'react'
 import useColors from '../../Utils/Colors'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../Firebase/app'
 
 const Profile = () => {
 
     const navigation = useNavigation()
 
-    const Colors = useColors()
+    async function handleLogout () {
+      try {
+        await signOut(auth);
+        navigation.navigate("Login")
+      } catch (error) {
+        console.error(error.message);
+        throw error;
+      }
+    }
 
+    const Colors = useColors()
     const styles = DynamicStyles(Colors)
 
   return (
@@ -19,6 +30,9 @@ const Profile = () => {
             <AntDesign name="arrowleft" size={28} color={Colors.text} />
           </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={handleLogout}>
+          <Text>Cerrar sesion</Text>
+        </TouchableOpacity>
     </View>
   )
 }

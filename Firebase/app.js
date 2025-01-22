@@ -1,8 +1,9 @@
-import { initializeApp } from 'firebase/app';
-import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import { initializeApp } from 'firebase/app'; // Asegúrate de que estás usando la inicialización correcta de Firebase
 import { getFirestore } from 'firebase/firestore';
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// Configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBUCUpXE7l28Ngsxp18aRWyWEZJ-0mKwZY",
   appId: "1:1027330058288:android:98c227544d2f60f07865f5",
@@ -12,15 +13,11 @@ const firebaseConfig = {
   //messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
 };
 
-class Firebase {
-  constructor() {
-    this.app = initializeApp(firebaseConfig);
-    this.db = getFirestore(this.app);
-  }
-}
-
-const firebase = new Firebase();
-export const auth = initializeAuth(firebase.app, {
+// Inicialización de Firebase y Firestore
+const app = initializeApp(firebaseConfig);
+const firestore = getFirestore(app); 
+const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(AsyncStorage)
 });
-export default firebase;
+
+export { firestore, auth };
